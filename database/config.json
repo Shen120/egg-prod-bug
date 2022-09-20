@@ -1,0 +1,28 @@
+{
+  "development": {
+    "username": "root",
+    "password": "123456",
+    "database": "satcd",
+    "host": "127.0.0.1",
+    "port": 7035,
+    "dialect": "mysql",
+    "seederStorage": "sequelize",
+    "seederStorageTableName": "sequelize_data"
+  },
+  "stg": {
+    "username": "stg_satcd",
+    "password": "*fq^fH9E569h",
+    "database": "stg_satcd",
+    "host": "127.0.0.1",
+    "port": 7035,
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "Z8zs7^r5s6D",
+    "database": "satcd",
+    "host": "127.0.0.1",
+    "port": 7036,
+    "dialect": "mysql"
+  }
+}

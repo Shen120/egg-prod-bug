@@ -1,0 +1,26 @@
+{
+  "extends": "eslint-config-egg/typescript",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "object-shorthand": "off",
+    "comma-dangle": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/semi": "off",
+    "quotes": "off",
+    "prefer-promise-reject-errors": "off",
+    "object-curly-spacing": "off",
+    "eol-last": "off",
+    "space-before-blocks": "off",
+    "no-trailing-spaces": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "no-multi-spaces": "off",
+    "no-bitwise": "off",
+    "jsdoc/check-tag-names": "off",
+    "arrow-parens": "off",
+    "dot-notation": "off",
+    "comma-spacing": "off",
+    "jsdoc/require-param-description": "off"
+  }
+}

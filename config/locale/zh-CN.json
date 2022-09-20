@@ -1,0 +1,11 @@
+{
+	"required": "参数不能为空",
+	"missing_field": "字段丢失",
+	"should not be empty": "不能为空",
+	"invalid": "格式无效",
+	"should be an email": "应该是电子邮件格式",
+	"should match %s": "should match %s",
+	"should be a string": "should be a string",
+	"should be a number": "should be a number",
+	"should be one of %s": "should be one of %s"
+}

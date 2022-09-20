@@ -1,0 +1,97 @@
+{
+  "name": "satcd",
+  "version": "1.0.0",
+  "description": "Skillful as the creator does - 巧同造化",
+  "private": true,
+  "egg": {
+    "typescript": true,
+    "declarations": true,
+    "tsHelper": {
+      "watchDirs": {
+        "socketio": {
+          "enabled": true,
+          "directory": "app/io",
+          "declareTo": "Application.io",
+          "generator": "class",
+          "interface": "IO"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "start": "egg-scripts start --sticky --daemon --title=egg-server-SATCD",
+    "stg": "egg-scripts start --sticky --daemon --env=stg --title=egg-server-SATCD-stg",
+    "stopstg": "egg-scripts stop --title=egg-server-SATCD-stg",
+    "stop": "egg-scripts stop --title=egg-server-SATCD",
+    "dev": "egg-bin dev --sticky",
+    "debug": "egg-bin debug",
+    "test-local": "egg-bin test",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "cov": "egg-bin cov",
+    "tsc": "ets && tsc -p tsconfig.json",
+    "ci": "npm run lint && npm run cov && npm run tsc",
+    "autod": "autod",
+    "lint": "eslint . --ext .ts",
+    "clean": "ets clean"
+  },
+  "dependencies": {
+    "@fidm/x509": "^1.2.1",
+    "axios": "^0.19.2",
+    "crypto-js": "^4.1.1",
+    "egg": "^2.6.1",
+    "egg-cors": "^2.2.3",
+    "egg-jwt": "^3.1.7",
+    "egg-mysql": "^3.1.0",
+    "egg-redis": "^2.4.0",
+    "egg-scripts": "^2.6.0",
+    "egg-sequelize": "^6.0.0",
+    "egg-socket.io": "^4.1.6",
+    "egg-validate": "^2.0.2",
+    "excel4node": "^1.8.0",
+    "i18n": "^0.15.0",
+    "js-base64": "^3.7.2",
+    "mathjs": "^11.0.1",
+    "mime": "^3.0.0",
+    "moment": "^2.29.3",
+    "mysql2": "^2.3.3",
+    "qiniu": "^7.7.0",
+    "ramda": "^0.28.0",
+    "string-random": "^0.1.3",
+    "superagent": "^8.0.0",
+    "ua-parser-js": "^1.0.2",
+    "sequelize-cli": "^6.4.1"
+  },
+  "devDependencies": {
+    "@types/crypto-js": "^4.1.1",
+    "@types/ramda": "^0.28.14",
+    "@types/ua-parser-js": "^0.7.36",
+    "tslib": "^1.9.0",
+    "@types/mocha": "^2.2.40",
+    "@types/node": "^7.0.12",
+    "@types/supertest": "^2.0.0",
+    "@eggjs/tsconfig": "^1.0.0",
+    "autod": "^3.0.1",
+    "autod-egg": "^1.1.0",
+    "egg-ci": "^2.1.0",
+    "egg-bin": "^4.11.0",
+    "egg-mock": "^3.16.0",
+    "eslint": "^8.0.0",
+    "eslint-config-egg": "^12.0.0",
+    "typescript": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "ci": {
+    "version": "8"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "eslintIgnore": [
+    "coverage"
+  ],
+  "author": "scc_199608@163.com",
+  "license": "MIT"
+}
