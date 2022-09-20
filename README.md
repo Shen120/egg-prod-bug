@@ -7,7 +7,6 @@
 2. `sequelize db:migrate`初始化数据表
 3. `sequelize db:seed:all`初始化数据表默认值
 4. `config set notify-keyspace-events Ex`开启redis事件订阅
-5. 配置微信支付回调地址
 
 #### 指定环境变量
 `npx sequelize db:migrate --env stg`
