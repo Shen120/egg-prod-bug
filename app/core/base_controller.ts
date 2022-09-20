@@ -112,21 +112,22 @@ class BaseController extends Controller {
    * @param data {SocketParams}
    * @param socketId
    */
+  // @ts-ignore
   socketSend(data: SocketParams, socketId?: string) {
-    console.log("开始发送：",socketId)
-    try {
-      const nsp: any = this.app.io.of('/');
-      const client = this.ctx.socket.id;
-      const msg = this.parseMsg(data);
-      if (socketId) {
-        nsp.server.sockets.to(socketId).emit(data.action, msg)
-      } else {
-        msg.meta["client"] = client;
-        nsp.server.sockets.emit(data.action, msg)
-      }
-    } catch (e) {
-      this.ctx.logger.error("socket消息未发送成功：", e)
-    }
+    // console.log("开始发送：",socketId)
+    // try {
+    //   const nsp: any = this.app.io.of('/');
+    //   const client = this.ctx.socket.id;
+    //   const msg = this.parseMsg(data);
+    //   if (socketId) {
+    //     nsp.server.sockets.to(socketId).emit(data.action, msg)
+    //   } else {
+    //     msg.meta["client"] = client;
+    //     nsp.server.sockets.emit(data.action, msg)
+    //   }
+    // } catch (e) {
+    //   this.ctx.logger.error("socket消息未发送成功：", e)
+    // }
   }
 
   /**

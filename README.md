@@ -3,7 +3,7 @@
 [Hacker News](https://news.ycombinator.com/) showcase using typescript && egg
 
 ## Init
-1. 先创建数据库`satcd`，字符集为`utf8mb4`，排序规则`utf8mb4_unicode_ci`
+1. 先创建数据库，字符集为`utf8mb4`，排序规则`utf8mb4_unicode_ci`
 2. `sequelize db:migrate`初始化数据表
 3. `sequelize db:seed:all`初始化数据表默认值
 4. `config set notify-keyspace-events Ex`开启redis事件订阅
