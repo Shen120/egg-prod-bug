@@ -18,6 +18,7 @@ import 'egg-jwt';
 import 'egg-validate';
 import 'egg-cors';
 import 'egg-sequelize';
+import 'egg-socket.io';
 import 'egg-redis';
 import { EggPluginItem } from 'egg';
 declare module 'egg' {

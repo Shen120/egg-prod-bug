@@ -19,7 +19,7 @@ const plugin: EggPlugin = {
     package: 'egg-sequelize',
   },
   io: {
-    enable: false,
+    enable: true,
     package: 'egg-socket.io',
   },
   redis:{

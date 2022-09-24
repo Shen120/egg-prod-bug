@@ -66,5 +66,12 @@ export default () => {
       },
     },
   };
-  return config;
+  const bizConfig = {
+    // 微信支付回调地址
+    wxPayCallbackUrl: "",
+  }
+  return {
+    ...config,
+    ...bizConfig
+  };
 };

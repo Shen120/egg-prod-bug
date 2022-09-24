@@ -3,6 +3,11 @@ import { EggAppConfig, PowerPartial } from 'egg';
 export default () => {
   const config: PowerPartial<EggAppConfig> = {};
 
+  config.logger = {
+    level: 'DEBUG',
+    allowDebugAtProd: true,
+  };
+
   config.jwt = {
     secret: 'jDE#*$KLU@h&4*$JK3j9$H54d#',
     enable: true, // 默认是关闭，如果开启，这会对所有请求进行自动校验；限定请求，请设置match做路径匹配
@@ -16,7 +21,7 @@ export default () => {
     datasources: [
       {
         delegate: 'model', // load all models to app.model and ctx.model
-        baseDir: 'model/blog', // load models from `app/model/blog/*.js`
+        baseDir: 'model', // load models from `app/model/blog/*.js`
         dialect: 'mysql',
         database: 'stg_satcd',
         host: '127.0.0.1',
@@ -70,5 +75,12 @@ export default () => {
       },
     },
   };
-  return config;
+  const bizConfig = {
+    // 微信支付回调地址
+    wxPayCallbackUrl: "https://api-stg.ceater.cn/api/wxApi/wxPayCallback",
+  }
+  return {
+    ...config,
+    ...bizConfig
+  };
 };

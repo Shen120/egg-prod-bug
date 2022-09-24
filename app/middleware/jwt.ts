@@ -10,7 +10,8 @@ module.exports = options => {
         "/api/wxApi/geetest/init",
         "/api/wxApi/geetest/validate",
         "/api/wxApi/wxPayCallback",
-        "/api/common/checkHasAdmin"
+        "/api/common/checkHasAdmin",
+        "/api/common/initAll"
       ]
       if (exclude.indexOf(ctx.path) > -1) {
         await next();

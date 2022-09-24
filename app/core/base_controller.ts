@@ -1,6 +1,9 @@
 import { Controller } from 'egg';
 import { Redis } from "ioredis";
 import {SafeAdminUser, SafeUser} from "../class";
+// import { CryptoJSModel } from '../utils';
+//
+// const keyJson = require("../public/keys.json");
 
 type SuccessParams = {
   status: number,
@@ -10,6 +13,8 @@ type SuccessParams = {
   formatList?: boolean,
   page?: number | string,
   pageSize?: number | string
+  setCookie?: boolean;
+  clearCookie?: boolean;
 }
 
 type SocketParams = {
@@ -52,7 +57,20 @@ class BaseController extends Controller {
   }
 
   success(params: SuccessParams) {
-    const {status, success, data, errorMessage, formatList, pageSize, page} = params;
+    const {status, success, data, errorMessage, formatList, pageSize, page, setCookie, clearCookie} = params;
+    if (setCookie) {
+      // const crypto = new CryptoJSModel(this.app.config.jwt.secret);
+      // const encode = crypto.encrypt(keyJson.csrf);
+      // this.ctx.cookies.set("csrfToken", encode, {
+      //   maxAge: this.app.config.jwt.sign.expiresIn,
+      //   path: "/"
+      // });
+      // this.ctx.session.csrfToken = encode;
+    }
+    if (clearCookie) {
+      // this.ctx.cookies.set("csrfToken", null);
+      // this.ctx.session.csrfToken = null;
+    }
     this.ctx.body = {
       success: success,
       data: formatList ? this.formatList(page, pageSize, data) : data,
@@ -112,22 +130,21 @@ class BaseController extends Controller {
    * @param data {SocketParams}
    * @param socketId
    */
-  // @ts-ignore
   socketSend(data: SocketParams, socketId?: string) {
-    // console.log("开始发送：",socketId)
-    // try {
-    //   const nsp: any = this.app.io.of('/');
-    //   const client = this.ctx.socket.id;
-    //   const msg = this.parseMsg(data);
-    //   if (socketId) {
-    //     nsp.server.sockets.to(socketId).emit(data.action, msg)
-    //   } else {
-    //     msg.meta["client"] = client;
-    //     nsp.server.sockets.emit(data.action, msg)
-    //   }
-    // } catch (e) {
-    //   this.ctx.logger.error("socket消息未发送成功：", e)
-    // }
+    console.log("开始发送：",socketId)
+    try {
+      const nsp: any = this.app.io.of('/');
+      const client = this.ctx.socket.id;
+      const msg = this.parseMsg(data);
+      if (socketId) {
+        nsp.server.sockets.to(socketId).emit(data.action, msg)
+      } else {
+        msg.meta["client"] = client;
+        nsp.server.sockets.emit(data.action, msg)
+      }
+    } catch (e) {
+      this.ctx.logger.error("socket消息未发送成功：", e)
+    }
   }
 
   /**
@@ -163,7 +180,8 @@ class BaseController extends Controller {
 
   log(err) {
     this.ctx.logger.error(err);
-    this.ctx.throw(400);
+    // this.ctx.throw(400);
+    throw new Error(err)
   }
 
   notFound(msg) {

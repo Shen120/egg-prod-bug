@@ -21,6 +21,7 @@
     "arrow-parens": "off",
     "dot-notation": "off",
     "comma-spacing": "off",
-    "jsdoc/require-param-description": "off"
+    "jsdoc/require-param-description": "off",
+    "@typescript-eslint/no-var-requires": "off"
   }
 }

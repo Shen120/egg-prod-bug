@@ -16,7 +16,7 @@ export default () => {
     datasources: [
       {
         delegate: 'model', // load all models to app.model and ctx.model
-        baseDir: 'model/blog', // load models from `app/model/blog/*.js`
+        baseDir: 'model', // load models from `app/model/blog/*.js`
         dialect: 'mysql',
         database: 'satcd',
         host: '127.0.0.1',
@@ -70,5 +70,12 @@ export default () => {
       },
     },
   };
-  return config;
+  const bizConfig = {
+    // 微信支付回调地址
+    wxPayCallbackUrl: "",
+  }
+  return {
+    ...config,
+    ...bizConfig
+  };
 };
