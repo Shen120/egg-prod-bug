@@ -20,10 +20,6 @@ export default (appInfo: EggAppInfo) => {
   config.keys = appInfo.name + '_1651840003678_2164';
 
   // add your egg config in here
-  config.middleware = [
-    'errorHandler',
-    "auth"
-  ];
   config.proxy = true;
 
   config.logger = {

@@ -77,7 +77,7 @@ export default () => {
   };
   const bizConfig = {
     // 微信支付回调地址
-    wxPayCallbackUrl: "https://api-stg.ceater.cn/api/wxApi/wxPayCallback",
+    wxPayCallbackUrl: "",
   }
   return {
     ...config,

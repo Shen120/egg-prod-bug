@@ -19,8 +19,8 @@
   },
   "production": {
     "username": "root",
-    "password": "Z8zs7^r5s6D",
-    "database": "satcd",
+    "password": "",
+    "database": "",
     "host": "127.0.0.1",
     "port": 7036,
     "dialect": "mysql"
