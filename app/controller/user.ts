@@ -20,6 +20,8 @@ export default class UserController extends Controller {
       //   page: query.page,
       //   pageSize: query.pageSize,
       // })
+      ctx.body = res;
+      ctx.status = 200;
     } catch (e) {
       // this.log(e)
     }
@@ -37,6 +39,8 @@ export default class UserController extends Controller {
       //   success: true,
       //   data: res
       // })
+      ctx.body = res;
+      ctx.status = 200;
     } catch (e) {
       // this.log(e)
     }
